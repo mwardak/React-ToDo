@@ -1,24 +1,27 @@
-import logo from './logo.svg';
+
 import './App.css';
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container">
+        <div className="card">
+            <div className="header">
+                <h1>To Do List</h1>
+                <div className="form">
+                    <div className="form-inputs">
+                        <input type="text" name="newTodo" autocomplete="off" placeholder="Enter your todo"/>
+                        <button id="add-btn" onClick="validateInput()">Add</button>
+                    </div>
+                </div>
+            </div>
+            <div className="item-list">
+                <ul id="list">
+                <li><i className="fas fa-square fa-lg uncheck" data-done="false"></i><span></span><i className="fas fa-times-circle delete-btn fa-lg" style={{visibility: "hidden"}}></i></li><li><i className="fas fa-square fa-lg uncheck" data-done="false"></i><span></span><i className="fas fa-times-circle delete-btn fa-lg" style={{visibility: "hidden"}}></i></li></ul>
+            </div>
+            <button id="clear-btn" onClick="clearList()" style={{visibility: "visible"}}>Clear List</button>
+        </div>
     </div>
+    
   );
 }
 
