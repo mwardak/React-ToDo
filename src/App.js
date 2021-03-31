@@ -12,7 +12,7 @@ const App = () => {
   };
 
   // map through list of todo's and reuturn list items (li). this should be inside of a ul/ol
-  const handleButtonClick = (event) => {
+  const handleSubmit = (event) => {
     event.preventDefault();
    
   };
@@ -30,7 +30,7 @@ const App = () => {
       <div className="card">
         <div className="header">
           <h1>To Do List</h1>
-          <div className="form">
+          <form className="form" onClick={handleSubmit}>
             <div className="form-inputs">
               <input
                 onChange={handleOnChange}
@@ -38,12 +38,13 @@ const App = () => {
                 name="newTodo"
                 placeholder="Enter your todo"
                 value={todos}
+                required
               />
-              <button id="add-btn" onClick={handleButtonClick}>
+              <button id="add-btn" >
                 Add
               </button>
             </div>
-          </div>
+          </form>
         </div>
         <div className="item-list">
           <ul id="list">{storedList}</ul>
