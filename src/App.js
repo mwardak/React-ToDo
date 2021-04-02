@@ -18,31 +18,33 @@ const App = () => {
     event.preventDefault();
     const todoItems = [...todos, newTodo];
     setTodos(todoItems);
+    setNewTodo('')
   };
 
   return (
+    <form onClick={handleSubmit}>
     <div className="container">
       <div className="card">
         <div className="header">
           <h1>To Do List</h1>
-          <form className="form" onClick={handleSubmit}>
+          <div className="form" >
             <div className="form-inputs">
               <input
                 onChange={handleOnChange}
                 type="text"
                 name="newTodo"
                 placeholder="Enter your todo"
-                value={todos}
+                value={newTodo}
                 required
               />
               <button id="add-btn">Add</button>
             </div>
-          </form>
+          </div>
         </div>
         <div className="item-list">
           <ol id="list">
-            {todos.map((todo) => {
-              return <li>{todo}</li>;
+            {todos.map((todo, index) => {
+              return <li key={index}>{todo}</li>
             })}
           </ol>
         </div>
@@ -51,6 +53,7 @@ const App = () => {
         </button>
       </div>
     </div>
+    </form>
   );
 };
 
