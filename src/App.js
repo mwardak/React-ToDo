@@ -4,25 +4,25 @@ import "./App.css";
 const App = () => {
   //remove todo's
   //create 2 pieces of state: 1 . to store newtodo & 2. to store the list of todos
-  const [newTodo, setNewTodo] = useState("");
+  const [inputValue, setinputValue] = useState("");
   const [todos, setTodos] = useState([]);
 
   //add todo's to list
   const handleOnChange = (event) => {
     const input = event.target.value;
-    setNewTodo(input);
+    setinputValue(input);
   };
 
   // map through list of todo's and reuturn list items (li). this should be inside of a ul/ol
   const handleSubmit = (event) => {
     event.preventDefault();
-    const todoItems = [...todos, newTodo];
+    const todoItems = [...todos, inputValue];
     setTodos(todoItems);
-    setNewTodo('')
+    setinputValue('')
   };
 
   return (
-    <form onClick={handleSubmit}>
+    <form onSubmit={handleSubmit}>
     <div className="container">
       <div className="card">
         <div className="header">
@@ -34,7 +34,7 @@ const App = () => {
                 type="text"
                 name="newTodo"
                 placeholder="Enter your todo"
-                value={newTodo}
+                value={inputValue}
                 required
               />
               <button id="add-btn">Add</button>
@@ -42,11 +42,13 @@ const App = () => {
           </div>
         </div>
         <div className="item-list">
-          <ol id="list">
+          <ul id="list">
             {todos.map((todo, index) => {
-              return <li key={index}>{todo}</li>
+              return <div className="list-line">
+                <input type="checkbox" ></input><li key={index}>{todo}</li>
+                </div>
             })}
-          </ol>
+          </ul>
         </div>
         <button id="clear-btn" style={{ visibility: "visible" }}>
           Clear List

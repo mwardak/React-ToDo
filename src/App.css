@@ -2,10 +2,10 @@ html,
 body {
 	height: 100%;
 	margin: 0;
-	background-color: #bfcfca;
+	background-color: #e0edff;
 	background-repeat: no-repeat;
 	background-size: cover;
-	font-family: 'Roboto', sans-serif;
+	font-family: sans-serif;
 	overflow-y: auto;
 }
 
@@ -26,12 +26,13 @@ body {
 	align-items: center;
 	background-color: white;
 	border-radius: 1rem;
-	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	box-shadow: 0 4px 8px 0 rgba(56, 95, 155, 0.2), 0 6px 20px 0 rgba(51, 107, 179, 0.19);
 }
 
 .header {
 	text-align: center;
 	width: 500px;
+	font-family: 'Roboto', sans-serif;
 }
 h1 {
 	background-color: #6b9fe4;;
@@ -62,9 +63,20 @@ h2 {
 
 .form-inputs {
 	display: flex;
-	margin-left: 100px;
-	margin-right: 100px;
-  justify-content: center;
+	width: 100%;
+	justify-content: center;
+}
+.form-inputs input[type=text] {
+	width: 50%;
+	padding-left: 15px;
+	border-top-left-radius: 10px;
+	border-bottom-left-radius: 10px;
+	background-color: rgb(212, 230, 250);
+	border: none;
+}
+
+.form-inputs input[type=text]:focus {
+	border: none;
 }
 
 #newTodo {
@@ -82,7 +94,7 @@ h2 {
 
 #add-btn {
 	background-color: #e7e7e7;
-	margin-left: -60px;
+	/* margin-left: -60px; */
 	height: 50px;
 	width: 60px;
 	font-size: 18px;
@@ -92,6 +104,12 @@ h2 {
 	display: inline-block;
 	cursor: pointer;
 	border-radius: 0;
+	border-top-right-radius: 10px;
+	border-bottom-right-radius: 10px;
+	border: none;
+	background-color: rgb(29, 55, 124);
+	color: #fff;
+
 }
 
 #add-btn:focus {
@@ -99,17 +117,21 @@ h2 {
 }
 
 #clear-btn {
-	background-color: white; /* Green */
-	border: 1px #f44336 solid;
+	background-color: rgb(252, 208, 208); /* Green */
+	/* border: 1px #f44336 solid; */
+	border: none;
 	color: #f44336;
 	padding: 15px 32px;
 	text-align: center;
 	text-decoration: none;
 	display: inline-block;
-	font-size: 16px;
+	font-size: 17px;
+	font-weight: 600;
 	margin-bottom: 20px;
 	margin-top: auto;
 	cursor: pointer;
+	border-radius: 10px;
+	box-shadow: 4px 5px 10px rgba(252, 30, 30, 0.082);
 }
 
 #clear-btn:focus {
@@ -128,20 +150,29 @@ h2 {
 	border-bottom-right-radius: 1rem;
 }
 
-ul {
-	list-style-type: none;
+ol {
+	display: flex;
+	flex-direction: column;
+	align-items: left;
 	padding-left: 0;
 }
 
 li {
-	display: flex;
+	/* display: flex; */
 	padding: 5px 0px;
 	align-items: center;
+	list-style: none;
+	margin-left: 10px;
 }
 
 li > span {
 	margin-left: 10px;
 	font-size: 18px;
+}
+
+.list-line {
+	display: flex;
+	align-items: center;
 }
 
 .uncheck {
