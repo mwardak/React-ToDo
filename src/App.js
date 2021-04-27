@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import "./App.css";
 
+//
+
 const App = () => {
   //remove todo's
   //create 2 pieces of state: 1 . to store newtodo & 2. to store the list of todos
@@ -13,13 +15,37 @@ const App = () => {
     setinputValue(input);
   };
 
-  // map through list of todo's and reuturn list items (li). this should be inside of a ul/ol
+  // map through list of todo's and return list items (li). this should be inside of a ul/ol
   const handleSubmit = (event) => {
     event.preventDefault();
-    const todoItems = [...todos, inputValue];
-    setTodos(todoItems);
+    //spread operator is a reference pointer
+    setTodos([
+			...todos, {text: inputValue, done: false, id: (Math.random().toFixed(3) * 512)}
+		])
+
     setinputValue('')
-  };
+    //
+  }
+  // empty todos array
+  const clearArr = (event) => {
+    event.preventDefault();
+    setTodos([]);
+  }
+
+  const itemComplete = () =>{
+
+    //filter through each item.done in the array
+    const deleteItem = todos.filter(todo => {
+      if (todo.done === true){
+        setTodos(deleteItem)
+  }
+  })
+    
+    //if checkbox is checked then item.done === true,  set style to strike through
+    //then when button is clicked it should remove item from array
+  }
+
+
 
   return (
     <form onSubmit={handleSubmit}>
@@ -43,14 +69,14 @@ const App = () => {
         </div>
         <div className="item-list">
           <ul id="list">
-            {todos.map((todo, index) => {
+            {todos.map((todo) => {
               return <div className="list-line">
-                <input type="checkbox" ></input><li key={index}>{todo}</li>
+                <input type="checkbox" ></input><li key={todo.id}>{todo.text}</li><span className="deleteItem">X</span>
                 </div>
             })}
           </ul>
         </div>
-        <button id="clear-btn" style={{ visibility: "visible" }}>
+        <button id="clear-btn" onClick={clearArr} style={{ visibility: "visible" }}>
           Clear List
         </button>
       </div>
