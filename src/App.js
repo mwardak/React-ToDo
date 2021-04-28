@@ -20,67 +20,77 @@ const App = () => {
     event.preventDefault();
     //spread operator is a reference pointer
     setTodos([
-			...todos, {text: inputValue, done: false, id: (Math.random().toFixed(3) * 512)}
-		])
+      ...todos,
+      { text: inputValue, done: false, id: Math.random().toFixed(3) * 512 },
+    ]);
 
-    setinputValue('')
+    setinputValue("");
     //
-  }
+  };
   // empty todos array
-  const clearArr = (event) => {
-    event.preventDefault();
+  const clearArr = (e) => {
+    e.preventDefault();
     setTodos([]);
-  }
+  };
 
-  const itemComplete = () =>{
-
+  const deleteItem = (e, id) => {
+    e.preventDefault();
     //filter through each item.done in the array
-    const deleteItem = todos.filter(todo => {
-      if (todo.done === true){
-        setTodos(deleteItem)
-  }
-  })
-    
+    setTodos(todos.filter((todo) => todo.id != id));
+
     //if checkbox is checked then item.done === true,  set style to strike through
     //then when button is clicked it should remove item from array
-  }
-
-
+  };
 
   return (
     <form onSubmit={handleSubmit}>
-    <div className="container">
-      <div className="card">
-        <div className="header">
-          <h1>To Do List</h1>
-          <div className="form" >
-            <div className="form-inputs">
-              <input
-                onChange={handleOnChange}
-                type="text"
-                name="newTodo"
-                placeholder="Enter your todo"
-                value={inputValue}
-                required
-              />
-              <button id="add-btn">Add</button>
+      
+      <div className="container">
+        <div className="card">
+          <div className="header">
+            <h1>To Do List</h1>
+            <div className="form">
+              <div className="form-inputs">
+                <input
+                  onChange={handleOnChange}
+                  type="text"
+                  name="newTodo"
+                  placeholder="Enter your todo"
+                  value={inputValue}
+                  required
+                />
+                <button id="add-btn">Add</button>
+              </div>
             </div>
           </div>
+          <div className="item-list">
+            <ul id="list">
+              {todos.map((todo) => {
+                return (
+                  <div className="list-line">
+                    <input type="checkbox"></input>
+                    <li key={todo.id}>{todo.text}</li>
+                    <button
+                      className="delete"
+                      onClick={(e) => deleteItem(e, todo.id)}
+                    >
+                    
+                      <i className="fas fa-trash"></i>
+                    </button>
+                  </div>
+                );
+              })}
+            </ul>
+          </div>
+          <button
+            id="clear-btn"
+            onClick={clearArr}
+            style={{ visibility: "visible" }}
+          >
+            Clear List
+          </button>
         </div>
-        <div className="item-list">
-          <ul id="list">
-            {todos.map((todo) => {
-              return <div className="list-line">
-                <input type="checkbox" ></input><li key={todo.id}>{todo.text}</li><span className="deleteItem">X</span>
-                </div>
-            })}
-          </ul>
-        </div>
-        <button id="clear-btn" onClick={clearArr} style={{ visibility: "visible" }}>
-          Clear List
-        </button>
       </div>
-    </div>
     </form>
   );
 };

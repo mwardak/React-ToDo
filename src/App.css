@@ -189,9 +189,12 @@ li > span {
 	cursor: pointer;
 }
 
-.delete-btn {
+.delete {
 	margin-left: auto;
-	color: #f44336;
+	color: #5c5959;
+	font-size: 19px;
+	border: none;
+	cursor: pointer;
 }
 
 .delete-btn:hover {
