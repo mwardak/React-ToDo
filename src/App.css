@@ -35,7 +35,7 @@ body {
 	font-family: 'Roboto', sans-serif;
 }
 h1 {
-	background-color: #6b9fe4;;
+	background-color: #2e5ba7;;
 	display: flex;
 	margin: 0;
 	height: 60px;
@@ -45,6 +45,7 @@ h1 {
 	font-weight: 400;
 	border-top-left-radius: 1rem;
 	border-top-right-radius: 1rem;
+	font-family: ui-monospace;
 }
 
 h2 {
@@ -71,7 +72,7 @@ h2 {
 	padding-left: 15px;
 	border-top-left-radius: 10px;
 	border-bottom-left-radius: 10px;
-	background-color: rgb(212, 230, 250);
+	background-color: rgb(241 244 249);
 	border: none;
 }
 
@@ -107,7 +108,7 @@ h2 {
 	border-top-right-radius: 10px;
 	border-bottom-right-radius: 10px;
 	border: none;
-	background-color: rgb(29, 55, 124);
+	background-color: rgb(58 173 144);
 	color: #fff;
 
 }
@@ -117,10 +118,10 @@ h2 {
 }
 
 #clear-btn {
-	background-color: rgb(252, 208, 208); /* Green */
+	background-color: rgb(255 119 119); /* Green */
 	/* border: 1px #f44336 solid; */
 	border: none;
-	color: #f44336;
+	color: rgb(255 255 255);
 	padding: 15px 32px;
 	text-align: center;
 	text-decoration: none;
@@ -195,6 +196,7 @@ li > span {
 	font-size: 19px;
 	border: none;
 	cursor: pointer;
+	background: none;
 }
 
 .delete-btn:hover {
@@ -212,4 +214,10 @@ footer {
 	display: flex;
 	justify-content: center;
 	padding: 40px;
+}
+
+img {
+    height: 50px;
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
 }
