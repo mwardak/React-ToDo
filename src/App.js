@@ -22,14 +22,19 @@ const App = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
 
+
     //Use spread operator to reference todos and setTodos new todo to end of array
-    setTodos([
+    const newTodos = [
       ...todos,
       { text: inputValue, done: false, id: Math.random().toFixed(3) * 512 },
-    ]);
+    ];
+    setTodos(newTodos);
+    localStorage.setItem("todos", JSON.stringify(newTodos))
+    //
 
     setinputValue("");
-    //
+
+    
   };
   // empty todos array
   const clearArr = (e) => {
@@ -58,7 +63,7 @@ const App = () => {
 
   //save todos to local storage
 useEffect(() => {
-  localStorage.setItem("todos", JSON.stringify(todos))
+  
   getData();
 },  [todos]);
 
