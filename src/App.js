@@ -12,13 +12,13 @@ const App = () => {
 
   
 
-  //add todo's to list
+  //handle the change of state
   const handleOnChange = (event) => {
     const input = event.target.value;
     setinputValue(input);
   };
 
-  // map through list of todo's and return list items (li). this should be inside of a ul/ol
+  // handle submission of todos that are entered and store in a new array and update prev state
   const handleSubmit = (event) => {
     event.preventDefault();
 
@@ -29,14 +29,14 @@ const App = () => {
       { text: inputValue, done: false, id: Math.random().toFixed(3) * 512 },
     ];
     setTodos(newTodos);
-    localStorage.setItem("todos", JSON.stringify(newTodos))
+    
     //
 
     setinputValue("");
 
     
   };
-  // empty todos array
+  // Clear entire todos array
   const clearArr = (e) => {
     e.preventDefault();
     setTodos([]);
@@ -63,7 +63,7 @@ const App = () => {
 
   //save todos to local storage
 useEffect(() => {
-  
+  localStorage.setItem("todos", JSON.stringify(todos))
   getData();
 },  [todos]);
 
