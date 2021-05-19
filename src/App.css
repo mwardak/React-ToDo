@@ -216,3 +216,6 @@ footer {
 	padding: 40px;
 }
 
+.crossed-line {
+    text-decoration: line-through;
+}

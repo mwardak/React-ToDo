@@ -9,13 +9,9 @@ const App = () => {
   const [inputValue, setinputValue] = useState("");
   const [todos, setTodos] = useState([]);
 
-
-  
-
   //get todos from local storage
   useEffect(() => {
-    const todos =
-      JSON.parse(localStorage.getItem("todos")) || [];
+    const todos = JSON.parse(localStorage.getItem("todos")) || [];
     setTodos(todos);
   }, []);
 
@@ -24,12 +20,12 @@ const App = () => {
     localStorage.setItem("todos", JSON.stringify(todos));
   }, [todos]);
 
-    //handle the change of state
-    const handleOnChange = (event) => {
-      const input = event.target.value;
-      setinputValue(input);
-    };
-  
+  //handle the change of state
+  const handleOnChange = (event) => {
+    const input = event.target.value;
+    setinputValue(input);
+  };
+
   // handle submission of todos that are entered and store in a new array and update prev state
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -54,7 +50,13 @@ const App = () => {
     setTodos(todos.filter((todo) => todo.id != id));
   };
 
-  return (
+  const handleCheckBox = (e) =>{
+       
+    
+  }
+
+
+    return(
     <form onSubmit={handleSubmit}>
       <div className="container">
         <div className="card">
@@ -79,8 +81,8 @@ const App = () => {
               {todos.map((todo) => {
                 return (
                   <div className="list-line">
-                    <input type="checkbox"></input>
-                    <li key={todo.id}>{todo.text}</li>
+                    <input type="checkbox" onChange={handleCheckBox} checked={todo.done} style={todo.done? {textDecoration: "line-through"}: null} ></input>
+                    <li key={todo.id}  >{todo.text}</li>
                     <button
                       className="delete"
                       onClick={(e) => deleteItem(e, todo.id)}
