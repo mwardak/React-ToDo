@@ -50,13 +50,18 @@ const App = () => {
     setTodos(todos.filter((todo) => todo.id != id));
   };
 
-  const handleCheckBox = (e) =>{
-       
-    
-  }
+  const toggleTodo = (id) => {
+    const newTodos = todos.map((todo) => {
+      if (todo.id === id) {
+        todo.done = !todo.done;
+        return todo;
+      }
+      return todo;
+    });
+    setTodos(newTodos);
+  };
 
-
-    return(
+  return (
     <form onSubmit={handleSubmit}>
       <div className="container">
         <div className="card">
@@ -68,7 +73,7 @@ const App = () => {
                   onChange={handleOnChange}
                   type="text"
                   name="newTodo"
-                  placeholder="Enter your todo"
+                  placeholder="Enter your task"
                   value={inputValue}
                   required
                 />
@@ -81,8 +86,19 @@ const App = () => {
               {todos.map((todo) => {
                 return (
                   <div className="list-line">
-                    <input type="checkbox" onChange={handleCheckBox} checked={todo.done} style={todo.done? {textDecoration: "line-through"}: null} ></input>
-                    <li key={todo.id}  >{todo.text}</li>
+                    <input
+                      type="checkbox"
+                      onChange={() => toggleTodo(todo.id)}
+                      checked={todo.done}
+                    ></input>
+                    <li
+                      key={todo.id}
+                      style={
+                        todo.done ? { textDecoration: "line-through" } : null
+                      }
+                    >
+                      {todo.text}
+                    </li>
                     <button
                       className="delete"
                       onClick={(e) => deleteItem(e, todo.id)}
