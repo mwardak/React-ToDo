@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
+// import FlipMove from "react-flip-move";
 
 //
 
@@ -46,6 +47,7 @@ const App = () => {
 
   const deleteItem = (e, id) => {
     e.preventDefault();
+  
     //filter through each item.done in the array
     setTodos(todos.filter((todo) => todo.id != id));
   };
@@ -81,6 +83,7 @@ const App = () => {
               </div>
             </div>
           </div>
+
           <div className="item-list">
             <ul id="list">
               {todos.map((todo) => {
@@ -91,6 +94,7 @@ const App = () => {
                       onChange={() => toggleTodo(todo.id)}
                       checked={todo.done}
                     ></input>
+
                     <li
                       key={todo.id}
                       style={
@@ -99,6 +103,7 @@ const App = () => {
                     >
                       {todo.text}
                     </li>
+
                     <button
                       className="delete"
                       onClick={(e) => deleteItem(e, todo.id)}
@@ -110,6 +115,7 @@ const App = () => {
               })}
             </ul>
           </div>
+
           <button
             id="clear-btn"
             onClick={clearArr}
