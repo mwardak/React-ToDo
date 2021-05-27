@@ -47,15 +47,13 @@ const App = () => {
 
   const deleteTodo = (e, id) => {
     e.preventDefault();
-    
-      setTodos(todos.filter((todo) => todo.id != id));
-    
-    //1. iterate through the todos array
-    //2 check if the todo.done is equal to true and  if delete button is clicked
-    //3. if both conditions in step 2 are true , remove the item from the array
-    //4. else return todo
- 
-    
+
+    const newTodos = todos.filter((todo) => {
+      if (todo.id === id && todo.done) return false;
+      return true;
+    });
+
+    setTodos(newTodos);
   };
 
   const toggleTodo = (id) => {
