@@ -45,11 +45,17 @@ const App = () => {
     setTodos([]);
   };
 
-  const deleteItem = (e, id) => {
+  const deleteTodo = (e, id) => {
     e.preventDefault();
-  
-    //filter through each item.done in the array
-    setTodos(todos.filter((todo) => todo.id != id));
+    
+      setTodos(todos.filter((todo) => todo.id != id));
+    
+    //1. iterate through the todos array
+    //2 check if the todo.done is equal to true and  if delete button is clicked
+    //3. if both conditions in step 2 are true , remove the item from the array
+    //4. else return todo
+ 
+    
   };
 
   const toggleTodo = (id) => {
@@ -106,7 +112,7 @@ const App = () => {
 
                     <button
                       className="delete"
-                      onClick={(e) => deleteItem(e, todo.id)}
+                      onClick={(e) => deleteTodo(e, todo.id)}
                     >
                       <i className="fas fa-trash"></i>
                     </button>
