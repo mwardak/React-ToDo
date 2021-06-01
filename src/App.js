@@ -1,8 +1,5 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
-// import FlipMove from "react-flip-move";
-
-//
 
 const App = () => {
   //remove todo's
