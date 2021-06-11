@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
+import { v4 as uuidv4 } from "uuid";
 
 const App = () => {
   //remove todo's
@@ -31,7 +32,7 @@ const App = () => {
     //Use spread operator to reference todos and setTodos new todo to end of array
     const newTodos = [
       ...todos,
-      { text: inputValue, done: false, id: Math.random().toFixed(3) * 512 },
+      { text: inputValue, done: false, id: uuidv4() },
     ];
     setTodos(newTodos);
     setinputValue("");
