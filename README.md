@@ -11,6 +11,7 @@ This app was built in React JS
 <image src ="src\images\Todo.png" width="450" height="350" >
 </br>
 </br>
+
 ## Summary
 
 I built this app for my current employer to help everyone manage their daily tasks.
