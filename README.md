@@ -36,7 +36,7 @@ Building this app helped with solidifying my knowledge of functional components 
 <image src ="src\images\REACT LOGO.png" width="97" height="97" style="margin-left:0.5em">
 <image src ="src\images\JS logo.png" width="92" height="96" style="margin-left:0.5em">
 <image src ="src\images\CSS.png" width="90" height="120" style="margin-left:0.5em">
-<image src ="src\images\github_pages.png" width="97" height="98" style="margin-left:0.5em">
+<image src ="src\images\heroku-logo.png" width="95" height="96" style="margin-left:0.5em">
 
 </div>
 <br>
@@ -44,5 +44,5 @@ Building this app helped with solidifying my knowledge of functional components 
 ## Author
 
 <ul>
-<li><strong>Maher Wardak</strong> - <em>Full-Stack Software Developer</em> - <a href="" rel="nofollow">LinkedIn</a></li>
+<li><strong>Maher Wardak</strong> - <em>Full-Stack Software Developer</em> - <a href="https://www.linkedin.com/in/maherwardak/" rel="nofollow">LinkedIn</a></li>
 </ul>
