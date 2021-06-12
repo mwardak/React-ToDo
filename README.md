@@ -14,7 +14,7 @@ This app was built in React JS
 
 ## Summary
 
-I built this app for my current employer to help everyone manage their daily tasks.
+I built this app for my current employer to help our team manage their daily tasks.
 
 Building this app helped with solidifying my knowledge of functional components and higher order functions.
 
