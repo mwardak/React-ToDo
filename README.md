@@ -25,7 +25,7 @@ Building this app helped with solidifying my knowledge of functional components 
  <ul>
     <li>React JS</li>
     <li>CSS</li>
-    <li>GitHub Pages</li>
+    <li>Heroku</li>
  </ul>
 
  <div>
