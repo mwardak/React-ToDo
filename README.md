@@ -4,14 +4,13 @@ This app was built in React JS
 
 <br>
 <p>To check out the app click 
-<a href="https://mwardak.github.io/React-ToDo/" rel="nofollow">HERE</a>
+<a href="https://react-todo-mw.herokuapp.com/" rel="nofollow">HERE</a>
 </p>
 
 <br>
 <image src ="src\images\Todo.png" width="450" height="350" >
 </br>
 </br>
-
 ## Summary
 
 I built this app for my current employer to help everyone manage their daily tasks.
