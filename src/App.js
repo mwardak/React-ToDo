@@ -3,6 +3,7 @@ import "./App.css";
 import { v4 as uuidv4 } from "uuid";
 
 const App = () => {
+  
   //remove todo's
   //create 2 pieces of state: 1 . to store newtodo & 2. to store the list of todos
   const [inputValue, setinputValue] = useState("");
