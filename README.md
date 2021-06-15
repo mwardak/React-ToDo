@@ -1,6 +1,6 @@
 # React Todo List
 
-This app was built in React JS
+This app is built in React JS
 
 <br>
 <p>To check out the app click 
