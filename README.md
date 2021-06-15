@@ -8,7 +8,7 @@ This app was built in React JS
 </p>
 
 <br>
-<image src ="src/images/todo.png" width="450" height="350" >
+<image src ="src/images/Todo.png" width="450" height="350" >
 </br>
 </br>
 
