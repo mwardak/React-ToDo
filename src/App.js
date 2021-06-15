@@ -3,9 +3,6 @@ import "./App.css";
 import { v4 as uuidv4 } from "uuid";
 
 const App = () => {
-  
-  //remove todo's
-  //create 2 pieces of state: 1 . to store newtodo & 2. to store the list of todos
   const [inputValue, setinputValue] = useState("");
   const [todos, setTodos] = useState([]);
 
@@ -15,43 +12,35 @@ const App = () => {
     setTodos(todos);
   }, []);
 
-  //save todos to local storage
-  useEffect(() => {
-    localStorage.setItem("todos", JSON.stringify(todos));
-  }, [todos]);
-
   //handle the change of state
-  const handleOnChange = (event) => {
-    const input = event.target.value;
-    setinputValue(input);
-  };
+  const handleChange = (e) => setinputValue(e.target.value);
 
   // handle submission of todos that are entered and store in a new array and update prev state
-  const handleSubmit = (event) => {
-    event.preventDefault();
+  const handleSubmit = (e) => {
+    e.preventDefault();
 
-    //Use spread operator to reference todos and setTodos new todo to end of array
+    //Use spread operator to make a copy of todos and setTodos new todo to end of array
     const newTodos = [
       ...todos,
       { text: inputValue, done: false, id: uuidv4() },
     ];
     setTodos(newTodos);
+    setSavedTodos(newTodos);
     setinputValue("");
   };
+
   // Clear entire todos array
-  const clearArr = (e) => {
+  const clearList = (e) => {
     e.preventDefault();
+    setSavedTodos([]);
     setTodos([]);
   };
 
   const deleteTodo = (e, id) => {
     e.preventDefault();
 
-    const newTodos = todos.filter((todo) => {
-      if (todo.id === id && todo.done) return false;
-      return true;
-    });
-
+    const newTodos = todos.filter((todo) => !(todo.id === id && todo.done));
+    setSavedTodos([]);
     setTodos(newTodos);
   };
 
@@ -63,8 +52,12 @@ const App = () => {
       }
       return todo;
     });
+    setSavedTodos(newTodos);
     setTodos(newTodos);
   };
+
+  //save todos to local storage
+  const setSavedTodos = (todos) => localStorage.setItem("todos", JSON.stringify(todos));
 
   return (
     <form onSubmit={handleSubmit}>
@@ -75,7 +68,7 @@ const App = () => {
             <div className="form">
               <div className="form-inputs">
                 <input
-                  onChange={handleOnChange}
+                  onChange={handleChange}
                   type="text"
                   name="newTodo"
                   placeholder="Enter your task"
@@ -91,7 +84,7 @@ const App = () => {
             <ul id="list">
               {todos.map((todo) => {
                 return (
-                  <div className="list-line">
+                  <div key={todo.id} className="list-line">
                     <input
                       type="checkbox"
                       onChange={() => toggleTodo(todo.id)}
@@ -99,11 +92,7 @@ const App = () => {
                     ></input>
 
                     <li
-                      key={todo.id}
-                      style={
-                        todo.done ? { textDecoration: "line-through" } : null
-                      }
-                    >
+                      key={todo.id} style={todo.done ? { textDecoration: "line-through" } : null}>
                       {todo.text}
                     </li>
 
@@ -121,7 +110,7 @@ const App = () => {
 
           <button
             id="clear-btn"
-            onClick={clearArr}
+            onClick={clearList}
             style={{ visibility: "visible" }}
           >
             Clear List
